@@ -11,17 +11,34 @@
     }
     .title{
       margin-right: 6px;
+      padding-top: 2px;
     }
   }
   .col{
     display: inline-block;
     width: 16px;
+    vertical-align: top;
     .title{
       margin-bottom: 6px;
     }
     .day{
       width: 16px;
       height: 16px;
+      border: 1px #fff solid;
     }
+  }
+}
+#container{
+  display: inline-block;
+  margin: auto;
+  min-width: 900px;
+  border: 1px #404040 solid;
+  border-radius: 8px;
+  padding: 12px 12px 0;
+  .info{
+    display: inline-block;
+    width: 33.333%;
+    text-align: center;
+    margin: 12px 0 12px;
   }
 }
