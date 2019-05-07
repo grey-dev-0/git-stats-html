@@ -1,0 +1,27 @@
+#grid{
+  .title{
+    height: 16px;
+    font-size: 12px;
+  }
+  #hcol{
+    display: inline-block;
+    vertical-align: top;
+    .title:first-child{
+      margin-bottom: 6px;
+    }
+    .title{
+      margin-right: 6px;
+    }
+  }
+  .col{
+    display: inline-block;
+    width: 16px;
+    .title{
+      margin-bottom: 6px;
+    }
+    .day{
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

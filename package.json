@@ -1,0 +1,23 @@
+{
+  "name": "git-stats-html",
+  "version": "1.0.0",
+  "description": "Replacement app for IonicBizao/git-stats-html for node 10+",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "git-stats",
+    "git-stats-html"
+  ],
+  "bin": {
+    "git-stats-html": "app.js"
+  },
+  "author": "Mohyaddin Saleh",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^3.4.1",
+    "jsdom": "^15.0.0",
+    "moment": "^2.24.0"
+  }
+}
