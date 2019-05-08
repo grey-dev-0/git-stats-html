@@ -25,7 +25,6 @@ process.stdin.on('end', function(){
         fs.writeFileSync(argInput[0], dom.serialize());
     else
         fs.writeFileSync('git-stats.htm', dom.serialize());
-    fs.writeFileSync('git-stats.json', pipeInput);
 });
 
 function render(data){

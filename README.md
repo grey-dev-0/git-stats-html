@@ -18,9 +18,9 @@ Installation goes the same way on Windows.
 
 ## Usage
 
-You can create an HTML file including your git history card usign the following command:
+You can create an HTML file including your git history card using the following command:
 ```bash
-$ git-stats --raw -s '2018-01-01' -u '2019-01-01' --raw | git-stats-html filename.htm
+$ git-stats --raw -s '2018-01-01' -u '2019-01-01' | git-stats-html filename.htm
 ```
 
 The `-s` and `-u` flags are optional and they mean `since` and `until` respectively so, you can set them to any date you'd like, feel free to check the rest of the documentation regarding `git-stats` [here](https://github.com/IonicaBizau/git-stats)

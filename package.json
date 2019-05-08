@@ -1,6 +1,6 @@
 {
   "name": "git-stats-html2",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Replacement app for IonicBizao/git-stats-html for node 10+",
   "main": "app.js",
   "scripts": {
