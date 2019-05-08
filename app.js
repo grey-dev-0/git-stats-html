@@ -5,7 +5,7 @@ var $ = require('jquery');
 
 const colors = ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127'];
 let dom = new JSDOM('<!DOCTYPE html><html lang="en"><head><title>Git Report</title>'+
-    '<style>#grid .title{height:16px;font-size:12px}#grid #hcol{display:inline-block;vertical-align:top}#grid #hcol .title:first-child{margin-bottom:6px}#grid #hcol .title{margin-right:6px;padding-top:2px}#grid .col{display:inline-block;width:16px;vertical-align:top}#grid .col .title{margin-bottom:6px}#grid .col .day{width:16px;height:16px;border:1px #fff solid}#container{display:inline-block;margin:auto;min-width:900px;border:1px #404040 solid;border-radius:8px;padding:12px 12px 0}#container .info{display:inline-block;width:33.333%;text-align:center;margin:12px 0 12px}</style>'+
+    '<style>#grid .title{height:16px;font-size:12px}#grid #hcol{display:inline-block;vertical-align:top}#grid #hcol .title:first-child{margin-bottom:6px}#grid #hcol .title{margin-right:6px;padding-top:2px}#grid .col{display:inline-block;width:16px;vertical-align:top}#grid .col .title{margin-bottom:6px}#grid .col .day{width:16px;height:16px;border:1px #fff solid}#container{display:inline-block;margin:auto;min-width:900px;border:1px #404040 solid;border-radius:8px;padding:12px 12px 0}#container .info{display:inline-block;width:25%;text-align:center;margin:12px 0 12px}\n</style>'+
     '</head><body></body></html>');
 $ = $(dom.window);
 let document = dom.window.document;
@@ -39,6 +39,7 @@ function render(data){
         '</div><div class="title">Mon</div><div class="title"></div><div class="title">Wed</div><div class="title"></div>'+
         '<div class="title">Fri</div><div class="title"></div></div></div><div class="info"><strong>Total Commits</strong><br/>'
         +commits.length+' Commits,<br/>from '+moment(data.start).format('YYYY-MM-DD')+' to '+moment(data.end).format('YYYY-MM-DD')
+        +'</div><div class="info"><strong>Max Commits</strong><br/>'+maxCommitCount
         +'</div><div class="info"><strong>Current Streak</strong><br/>'+currentStreakCount+' Days,<br/>from '
         +moment(currentStreakPeriod.start).format('YYYY-MM-DD')+' to '+moment(currentStreakPeriod.end).format('YYYY-MM-DD')
         +'</div><div class="info"><strong>Longest Streak</strong><br/>'+longestStreakCount+' Days,<br/>from '
