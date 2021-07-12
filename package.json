@@ -1,6 +1,6 @@
 {
   "name": "git-stats-html2",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Replacement app for IonicBizao/git-stats-html for node 10+",
   "main": "app.js",
   "scripts": {
@@ -18,7 +18,7 @@
   "dependencies": {
     "jquery": "^3.4.1",
     "jsdom": "^15.0.0",
-    "moment": "^2.24.0"
+    "moment": "^2.0"
   },
   "devDependencies": {},
   "repository": {

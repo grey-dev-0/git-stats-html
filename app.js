@@ -30,6 +30,15 @@ process.stdin.on('end', function(){
 function render(data){
     let currentStreakCount = data.cStreak || 0;
     let longestStreakCount = data.lStreak || 0;
+    let streaks = ['longestStreak', 'currentStreak'];
+    let bounds = ['start', 'end'], streak, bound;
+    for(var i in streaks){
+        streak = streaks[i];
+        for(var j in bounds){
+            bound = bounds[j];
+            data[streak][bound] = ((data[streak][bound].match(/^[A-Za-z]+/))? moment(data[streak][bound], 'MMM D, YYYY') : moment(data[streak][bound])).format('YYYY-MM-DD');
+        }
+    }
     let longestStreakPeriod = data.longestStreak;
     let currentStreakPeriod = data.currentStreak;
     let maxCommitCount = data.max;
@@ -37,15 +46,14 @@ function render(data){
     let container = $('<div id="container"><div id="grid"><div id="hcol"><div class="title"></div><div class="title">'+
         '</div><div class="title">Mon</div><div class="title"></div><div class="title">Wed</div><div class="title"></div>'+
         '<div class="title">Fri</div><div class="title"></div></div></div><div class="info"><strong>Total Commits</strong><br/>'
-        +commits.length+' Commits,<br/>from '+moment(data.start).format('YYYY-MM-DD')+' to '+moment(data.end).format('YYYY-MM-DD')
+        +'##TOTALCOMMITS## Commits,<br/>from '+moment(data.start).format('YYYY-MM-DD')+' to '+moment(data.end).format('YYYY-MM-DD')
         +'</div><div class="info"><strong>Max Commits</strong><br/>'+maxCommitCount
         +'</div><div class="info"><strong>Current Streak</strong><br/>'+currentStreakCount+' Days,<br/>from '
-        +moment(currentStreakPeriod.start).format('YYYY-MM-DD')+' to '+moment(currentStreakPeriod.end).format('YYYY-MM-DD')
+        +currentStreakPeriod.start+' to '+currentStreakPeriod.end
         +'</div><div class="info"><strong>Longest Streak</strong><br/>'+longestStreakCount+' Days,<br/>from '
-        +moment(longestStreakPeriod.start).format('YYYY-MM-DD')+' to '+moment(longestStreakPeriod.end).format('YYYY-MM-DD')
-        +'</div></div>');
+        +longestStreakPeriod.start+' to '+longestStreakPeriod.end +'</div></div>');
 
-    let grid = container.find('#grid'), lastMonth = null;
+    let grid = container.find('#grid'), lastMonth = null, totalCommits = 0;
     commits.forEach(function(commit, i){
         let timestamp = moment(commit[0]);
         let record = {
@@ -66,8 +74,11 @@ function render(data){
             lastMonth = month;
             column.find('.title').text(month);
         }
+        totalCommits += record.count;
     });
 
+    let totalCommitsCell = container.find('.info:eq(0)');
+    totalCommitsCell.html(totalCommitsCell.html().replace('##TOTALCOMMITS##', totalCommits));
     let body = $(document.getElementsByTagName('body')[0]);
     let title = $(document).find('title');
     title.html(title.text()+' '+moment().format('YYYY-MM-DD hh:mm:ss A'));
